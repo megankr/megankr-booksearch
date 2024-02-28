@@ -1,5 +1,45 @@
-const typeDefs = require('./typeDefs');
-const resolvers = require('./resolvers');
+const typeDefs = `
 
-module.exports = { typeDefs, resolvers };
- 
+type Auth {
+    token: ID
+    user: User
+  }
+
+type Book {
+    bookId: ID
+    authors: [String]
+    description: String
+    title: String
+    image: String
+    link: Strung
+
+}
+
+type User {
+    _id: ID
+    username: String
+    email: String
+    bookCount: Int
+    savedBooks: [Book]
+}
+
+type Mutation {
+    login(email: String!, password: String!): Auth
+    addUser(userName: String!, email: String!, password: String!): Auth
+    saveBook(input: BookInput!): User
+    removeBook(bookId: String!): User
+}
+
+type BookInput {
+    author: String
+    description: String
+    title: String
+    bookId: ID
+    image: String
+    link: String
+}
+
+type Query {
+    me: User
+  }
+  ;`
