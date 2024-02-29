@@ -11,8 +11,7 @@ type Book {
     description: String
     title: String
     image: String
-    link: Strung
-
+    link: String
 }
 
 type User {
@@ -42,4 +41,6 @@ type BookInput {
 type Query {
     me: User
   }
-  ;`
+`;
+
+module.exports = typeDefs;
